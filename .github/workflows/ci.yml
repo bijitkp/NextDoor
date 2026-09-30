@@ -34,3 +34,8 @@ jobs:
         working-directory: services/auth-service
         run: |
           python -m compileall .
+
+      - name: Build Docker image
+        working-directory: services/auth-service
+        run: |
+          docker build -t nextdoor-auth-service:${{ github.sha }} .
